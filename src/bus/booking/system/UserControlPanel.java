@@ -4,13 +4,7 @@
  * and open the template in the editor.
  */
 package bus.booking.system;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.text.SimpleDateFormat;
-import javax.swing.JOptionPane;
+import javax.swing.JFrame;
 
 /**
  *
@@ -24,58 +18,15 @@ String lUser;
      */
     public UserControlPanel() {
         initComponents();
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-        DateOfJourney.setDateFormatString("yyyy-MM-dd");
-        bookTicket.setEnabled(false);
-         
-         
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
-    String BusNo;
+    
      String user;
     public UserControlPanel(String user) {
-        initComponents();
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-        DateOfJourney.setDateFormatString("yyyy-MM-dd");
-        bookTicket.setEnabled(false);
-        
         this.user = user;
-        
+        initComponents();
         String getVal = jLabel3.getText();
         jLabel3.setText(getVal + ": " + user);
-        
-        bookTicket.setEnabled(false);
-        
-        
-         try {
-            Class.forName("org.postgresql.Driver");
-            String databaseURL = "jdbc:postgresql://localhost:5432/postgres";
-            Connection con = DriverManager.getConnection(databaseURL, "postgres", "admin");
-            Statement stat = con.createStatement();
-
-           String selectQuery = "select * from bus_details ";
-           
-
-           ResultSet rs = stat.executeQuery(selectQuery);
-           
-           while(rs.next())
-           {
-           sourceComboBox.addItem(rs.getString("bus_source"));
-           destComboBox.addItem(rs.getString("bus_dest"));
-           }
-
-           // if(Integer.parseInt(total_seats) > 30){
-           // JOptionPane.showMessageDialog(null,"Max Seats: 30");
-          //  }
-          
-               
-                
-                         
-                
-     
-            
-        } catch (Exception e) {
-            System.out.println(e);
-        }
         }
 
     /**
@@ -87,139 +38,65 @@ String lUser;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel2 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        Source = new javax.swing.JTextField();
-        Destination = new javax.swing.JTextField();
-        DateOfJourney = new com.toedter.calendar.JDateChooser();
-        findBus = new javax.swing.JButton();
-        bookTicket = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
-        noSeats = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        busComboBox = new javax.swing.JComboBox<>();
-        jLabel1 = new javax.swing.JLabel();
-        Logout = new javax.swing.JButton();
-        sourceComboBox = new javax.swing.JComboBox<>();
-        destComboBox = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jDesktopPane1 = new javax.swing.JDesktopPane();
+        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         Profile = new javax.swing.JMenuItem();
         Bookings = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBounds(new java.awt.Rectangle(0, 0, 0, 0));
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().setLayout(null);
 
-        jPanel2.setLayout(null);
+        jLabel2.setText("Welcome");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(1150, 0, 60, 20);
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(1210, 0, 130, 20);
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel4.setText("Source");
-        jPanel2.add(jLabel4);
-        jLabel4.setBounds(210, 30, 140, 40);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bus/booking/system/oli-dale-xjSkI_seiZY-unsplash (1).jpg"))); // NOI18N
+        jLabel1.setText("jLabel1");
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel3.setText("Welcome");
-        jPanel2.add(jLabel3);
-        jLabel3.setBounds(550, 0, 140, 15);
+        jDesktopPane1.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel5.setText("Date of Journey");
-        jPanel2.add(jLabel5);
-        jLabel5.setBounds(210, 130, 120, 30);
+        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
+        jDesktopPane1.setLayout(jDesktopPane1Layout);
+        jDesktopPane1Layout.setHorizontalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jDesktopPane1Layout.setVerticalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
-        Source.addActionListener(new java.awt.event.ActionListener() {
+        getContentPane().add(jDesktopPane1);
+        jDesktopPane1.setBounds(0, 20, 1490, 830);
+
+        jMenu1.setText("File");
+
+        jMenuItem2.setText("Logout");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SourceActionPerformed(evt);
+                jMenuItem2ActionPerformed(evt);
             }
         });
-        jPanel2.add(Source);
-        Source.setBounds(520, 40, 120, 20);
-        jPanel2.add(Destination);
-        Destination.setBounds(520, 90, 120, 20);
+        jMenu1.add(jMenuItem2);
 
-        DateOfJourney.setDateFormatString("yyyy-MM-dd");
-        jPanel2.add(DateOfJourney);
-        DateOfJourney.setBounds(340, 140, 120, 20);
-
-        findBus.setText("Find Bus");
-        findBus.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem1.setText("Exit");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                findBusActionPerformed(evt);
+                jMenuItem1ActionPerformed(evt);
             }
         });
-        jPanel2.add(findBus);
-        findBus.setBounds(210, 260, 130, 23);
+        jMenu1.add(jMenuItem1);
 
-        bookTicket.setText("Book Tickets");
-        bookTicket.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bookTicketActionPerformed(evt);
-            }
-        });
-        jPanel2.add(bookTicket);
-        bookTicket.setBounds(360, 260, 120, 23);
-
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel6.setText("No of Seats");
-        jPanel2.add(jLabel6);
-        jLabel6.setBounds(210, 180, 110, 17);
-
-        noSeats.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                noSeatsActionPerformed(evt);
-            }
-        });
-        jPanel2.add(noSeats);
-        noSeats.setBounds(340, 180, 120, 20);
-
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel7.setText("Bus");
-        jPanel2.add(jLabel7);
-        jLabel7.setBounds(210, 220, 110, 17);
-
-        jPanel2.add(busComboBox);
-        busComboBox.setBounds(340, 220, 120, 22);
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel1.setText("Destination");
-        jPanel2.add(jLabel1);
-        jLabel1.setBounds(210, 80, 90, 30);
-
-        Logout.setText("Logout");
-        Logout.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LogoutActionPerformed(evt);
-            }
-        });
-        jPanel2.add(Logout);
-        Logout.setBounds(510, 260, 110, 23);
-
-        sourceComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sourceComboBoxActionPerformed(evt);
-            }
-        });
-        jPanel2.add(sourceComboBox);
-        sourceComboBox.setBounds(350, 40, 110, 22);
-
-        destComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                destComboBoxActionPerformed(evt);
-            }
-        });
-        jPanel2.add(destComboBox);
-        destComboBox.setBounds(350, 90, 110, 22);
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bus/booking/system/oli-dale-xjSkI_seiZY-unsplash (1).jpg"))); // NOI18N
-        jLabel2.setText("jLabel2");
-        jPanel2.add(jLabel2);
-        jLabel2.setBounds(0, 20, 820, 380);
-
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 400));
+        jMenuBar1.add(jMenu1);
 
         jMenu2.setText("My Account");
 
@@ -245,96 +122,18 @@ String lUser;
         // TODO add your handling code here:
     }//GEN-LAST:event_BookingsActionPerformed
 
-    private void SourceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SourceActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SourceActionPerformed
-
-    private void findBusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_findBusActionPerformed
-
-
-        // TODO add your handling code here:
-        
-        String source = Source.getText();
-        String destination= Destination.getText();
-        java.util.Date departDateD= DateOfJourney.getDate();
-        
-
-
-           try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            String databaseURL = "jdbc:postgresql://localhost:5432/postgres";
-            Connection con = DriverManager.getConnection(databaseURL, "postgres", "admin");
-            
-            String selectQuery = "select * from bus_details where bus_source='" + source + "' and bus_dest='" + destination  + "' and \"departDate\"='" + departDateD + "'";
-        
-           Statement stat = con.createStatement();
-
-           ResultSet rs = stat.executeQuery(selectQuery);
-           
-           
-            while(rs.next()){
-             String bus_num = rs.getString("bus_num");
-             System.out.println(bus_num);
-               busComboBox.addItem(bus_num);
-               bookTicket.setEnabled(true);
-             }
-           
-            
-         }catch(Exception e){
-         System.out.println(e);
-         }
-
-    }//GEN-LAST:event_findBusActionPerformed
-
-    void clear(){
-    Source.setText(null);
-    Destination.setText(null);
-    DateOfJourney.setDate(null);
-    noSeats.setText(null);
-    busComboBox.setSelectedItem(null);
-    
-    }    
-    private void bookTicketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookTicketActionPerformed
-        // TODO add your handling code here:
-        int i;
-        String bus_no= (String) busComboBox.getSelectedItem();
-        System.out.println(bus_no);
-                int seatCount= Integer.parseInt(noSeats.getText());
-        String source = Source.getText();
-        String destination= Destination.getText();
-        for(i=1;i<=seatCount;i++){
-        BookingScreen book= new BookingScreen(i,source,destination,bus_no,seatCount);
-        book.setLocationRelativeTo(null);
-        book.setVisible(true);
-        }
-        
-        clear();
-        
-    }//GEN-LAST:event_bookTicketActionPerformed
-
-    private void noSeatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noSeatsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_noSeatsActionPerformed
-
-    private void LogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutActionPerformed
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
         dispose();
-        JOptionPane.showMessageDialog(null,"You have successfully logged out");
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+        dispose();
         Mainscreen main = new Mainscreen();
         main.setLocationRelativeTo(null);
         main.setVisible(true);
-    }//GEN-LAST:event_LogoutActionPerformed
-
-    private void sourceComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sourceComboBoxActionPerformed
-        // TODO add your handling code here:
-        Source.setText((String) sourceComboBox.getSelectedItem());
-        
-    }//GEN-LAST:event_sourceComboBoxActionPerformed
-
-    private void destComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_destComboBoxActionPerformed
-        // TODO add your handling code here:
-        Destination.setText((String) destComboBox.getSelectedItem());
-    }//GEN-LAST:event_destComboBoxActionPerformed
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -373,26 +172,15 @@ String lUser;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem Bookings;
-    private com.toedter.calendar.JDateChooser DateOfJourney;
-    private javax.swing.JTextField Destination;
-    private javax.swing.JButton Logout;
     private javax.swing.JMenuItem Profile;
-    private javax.swing.JTextField Source;
-    private javax.swing.JButton bookTicket;
-    private javax.swing.JComboBox<String> busComboBox;
-    private javax.swing.JComboBox<String> destComboBox;
-    private javax.swing.JButton findBus;
+    private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField noSeats;
-    private javax.swing.JComboBox<String> sourceComboBox;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     // End of variables declaration//GEN-END:variables
 }

@@ -11,6 +11,8 @@ import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.Vector;
 import javax.swing.JInternalFrame;
+import java.awt.Color;
+import javax.swing.JFrame;
 
 /**
  *
@@ -23,10 +25,10 @@ public class AddBusDetails extends javax.swing.JInternalFrame {
      */
     public AddBusDetails() {
         initComponents();
+        //setExtendedState(JFrame.MAXIMIZED_BOTH);
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         jDateChooser1.setDateFormatString("yyyy-MM-dd");
-        choice1.add("UP");  
-        choice1.add("DOWN");
+
     }
 
     /**
@@ -47,40 +49,36 @@ public class AddBusDetails extends javax.swing.JInternalFrame {
         bus_destTF = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
         priceTF = new javax.swing.JTextField();
         timeTF = new javax.swing.JTextField();
-        seatTF = new javax.swing.JTextField();
-        choice1 = new java.awt.Choice();
         Close = new javax.swing.JButton();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        jLabel10 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 204, 0));
+        setBackground(new java.awt.Color(255, 255, 255));
         setMaximumSize(new java.awt.Dimension(650, 443));
         setMinimumSize(new java.awt.Dimension(650, 443));
         setPreferredSize(new java.awt.Dimension(650, 443));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("BentonSans Bold", 3, 18)); // NOI18N
         jLabel1.setText("ADD BUS DETAILS");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 20, 220, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, 220, -1));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("BentonSans Book Italic", 1, 12)); // NOI18N
         jLabel2.setText("Bus Number ");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("BentonSans Book Italic", 1, 12)); // NOI18N
         jLabel3.setText("Source ");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 77, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 77, -1));
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("BentonSans Book Italic", 1, 12)); // NOI18N
         jLabel4.setText("Destination");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 120, 90, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 140, 90, -1));
 
         bus_numTF.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         bus_numTF.addActionListener(new java.awt.event.ActionListener() {
@@ -88,80 +86,67 @@ public class AddBusDetails extends javax.swing.JInternalFrame {
                 bus_numTFActionPerformed(evt);
             }
         });
-        getContentPane().add(bus_numTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, 150, -1));
+        getContentPane().add(bus_numTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 150, 20));
 
         bus_sourceTF.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        getContentPane().add(bus_sourceTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 150, -1));
+        getContentPane().add(bus_sourceTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, 150, 20));
 
         bus_destTF.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        getContentPane().add(bus_destTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 120, 160, -1));
+        bus_destTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bus_destTFActionPerformed(evt);
+            }
+        });
+        getContentPane().add(bus_destTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 140, 150, 20));
 
-        jButton1.setText("Save");
+        jButton1.setFont(new java.awt.Font("BentonSans Bold", 1, 10)); // NOI18N
+        jButton1.setText("SAVE");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 310, 106, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, 106, -1));
 
-        jButton2.setText("Reset");
+        jButton2.setFont(new java.awt.Font("BentonSans Bold", 1, 10)); // NOI18N
+        jButton2.setText("RESET");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 310, 114, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 280, 114, -1));
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel5.setText("Movement");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 60, 70, -1));
-
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("BentonSans Book Italic", 1, 12)); // NOI18N
         jLabel6.setText("Date");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, -1, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("BentonSans Book Italic", 1, 12)); // NOI18N
         jLabel7.setText("Price");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, -1, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 100, -1, 20));
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("BentonSans Book Italic", 1, 12)); // NOI18N
         jLabel8.setText("Time");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 170, 40, -1));
-
-        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel9.setText("Seats");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 230, 40, -1));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, 40, -1));
 
         priceTF.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        getContentPane().add(priceTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 230, 150, -1));
+        getContentPane().add(priceTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 100, 150, 20));
 
         timeTF.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        getContentPane().add(timeTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 170, 160, -1));
+        getContentPane().add(timeTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 180, 150, 20));
 
-        seatTF.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        seatTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seatTFActionPerformed(evt);
-            }
-        });
-        getContentPane().add(seatTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 230, 160, -1));
-
-        choice1.setName(""); // NOI18N
-        getContentPane().add(choice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 60, 160, 20));
-
-        Close.setText("Close");
+        Close.setFont(new java.awt.Font("BentonSans Bold", 1, 10)); // NOI18N
+        Close.setText("CLOSE");
         Close.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CloseActionPerformed(evt);
             }
         });
-        getContentPane().add(Close, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 310, 90, -1));
-        getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, 150, -1));
+        getContentPane().add(Close, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 280, 90, -1));
+        getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, 150, 20));
 
-        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bus/booking/system/oleg-laptev-EA7vfFpTJB4-unsplash.jpg"))); // NOI18N
-        jLabel10.setText("jLabel10");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 700, 440));
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bus/booking/system/oli-dale-xjSkI_seiZY-unsplash (1).jpg"))); // NOI18N
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1040, 420));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -174,12 +159,7 @@ public class AddBusDetails extends javax.swing.JInternalFrame {
         bus_numTF.setText("");
         bus_sourceTF.setText("");
         bus_destTF.setText("");
-        priceTF.setText(null);
-        seatTF.setText(null);
-        jDateChooser1.setDate(null);
-        timeTF.setText(null);
-        
-        
+
     }
     private void bus_numTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bus_numTFActionPerformed
         // TODO add your handling code here:
@@ -190,55 +170,43 @@ public class AddBusDetails extends javax.swing.JInternalFrame {
         String bus_num = bus_numTF.getText();
         String bus_source = bus_sourceTF.getText();
         String bus_dest = bus_destTF.getText();
-         java.util.Date departDateD= jDateChooser1.getDate();
-          //   SimpleDateFormat oDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-           //  String departDate = oDateFormat.format(departDateD);
+        java.util.Date departDateD = jDateChooser1.getDate();
+        //   SimpleDateFormat oDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        //  String departDate = oDateFormat.format(departDateD);
 //        java.util.Date departDateD = jDateChooser1.getDate();
-       // jDateChooser2.setDateFormatString("yyyy/MM/dd");
+        // jDateChooser2.setDateFormatString("yyyy/MM/dd");
         //SimpleDateFormat oDateFormat = new SimpleDateFormat("yyyy/MM/dd");
-          
+
         //String departDate = oDateFormat.format(departDateD);
-         System.out.println("Date:"+ departDateD);
-        
+        System.out.println("Date:" + departDateD);
+
         String departTime = timeTF.getText();
-        
+
         String price = priceTF.getText();
-        String total_seats = seatTF.getText();
-                
-        String move = (String) choice1.getSelectedItem();
 
         try {
             Class.forName("org.postgresql.Driver");
             String databaseURL = "jdbc:postgresql://localhost:5432/postgres";
-            Connection con = DriverManager.getConnection(databaseURL, "postgres", "admin");
+            Connection con = DriverManager.getConnection(databaseURL, "postgres", "Stuti@12345");
             Statement stat = con.createStatement();
 
             String selectQuery = "select count(*) from bus_details where bus_num='" + bus_num + "'";
 
             ResultSet rs = stat.executeQuery(selectQuery);
 
-            if(Integer.parseInt(total_seats) > 30){
-            JOptionPane.showMessageDialog(null,"Max Seats: 30");
-            }
             System.out.println(rs.next());
             if (rs.next() == true) {
                 infoMessage("Hmm.. seems like bus details already exists ! ", " ALert ");
             } else {
-                
-               
-                
-                String insertQuery = "insert into bus_details(bus_num, bus_source, bus_dest, \"departDate\", \"departTime\", price, total_seats, move) values('" + bus_num + "','" + bus_source + "','" + bus_dest + "','" + departDateD + "','" + departTime + "','" + price + "','" + total_seats + "','" + move + "')";
-                int x = stat.executeUpdate(insertQuery);
-                
-                
-                if(x>0){
-                 infoMessage("Bus details successfully added ", " Great work ! :D  ");
-                clear();
-                
-                }
-               
 
- 
+                String insertQuery = "insert into bus_details(bus_num, bus_source, bus_dest, \"departDate\", \"departTime\", price) values('" + bus_num + "','" + bus_source + "','" + bus_dest + "','" + departDateD + "','" + departTime + "','" + price + "')";
+                int x = stat.executeUpdate(insertQuery);
+
+                if (x == 1) {
+                    infoMessage("Bus details successfully added ", " Great work ! :D  ");
+                    dispose();
+                }
+
             }
         } catch (Exception e) {
             System.out.println(e);
@@ -249,21 +217,20 @@ public class AddBusDetails extends javax.swing.JInternalFrame {
         clear();        // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void seatTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatTFActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_seatTFActionPerformed
-
     private void dateDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dateDActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_dateDActionPerformed
 
     private void CloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CloseActionPerformed
-                // TODO add your handling code here:
-                clear();
-                dispose();
-                
-                
+        // TODO add your handling code here:
+        dispose();
+
+
     }//GEN-LAST:event_CloseActionPerformed
+
+    private void bus_destTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bus_destTFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bus_destTFActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -271,22 +238,18 @@ public class AddBusDetails extends javax.swing.JInternalFrame {
     private javax.swing.JTextField bus_destTF;
     private javax.swing.JTextField bus_numTF;
     private javax.swing.JTextField bus_sourceTF;
-    private java.awt.Choice choice1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField priceTF;
-    private javax.swing.JTextField seatTF;
     private javax.swing.JTextField timeTF;
     // End of variables declaration//GEN-END:variables
 }

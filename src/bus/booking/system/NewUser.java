@@ -4,10 +4,13 @@
  * and open the template in the editor.
  */
 package bus.booking.system;
+
 import java.sql.*;
 import java.util.Random;
 import javax.swing.JOptionPane;
-  
+import java.awt.Color;
+import javax.swing.JFrame;
+
 /**
  *
  * @author I524925
@@ -19,6 +22,7 @@ public class NewUser extends javax.swing.JFrame {
      */
     public NewUser() {
         initComponents();
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 
     /**
@@ -30,6 +34,7 @@ public class NewUser extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel11 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -48,39 +53,42 @@ public class NewUser extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         genderTF = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(153, 153, 153));
         setPreferredSize(new java.awt.Dimension(1000, 800));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 102, 102));
-        jLabel1.setText("First Name");
+        jLabel11.setBackground(new Color(0.18f,0.15f,0.16f,1.0f));
+        jLabel11.setText("jLabel11");
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 540, 560, 30));
+
+        jLabel1.setFont(new java.awt.Font("BentonSans Book Italic", 1, 12)); // NOI18N
+        jLabel1.setText("FIRST NAME");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, 110, 20));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 102, 102));
-        jLabel2.setText("Age");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 130, 40, 30));
+        jLabel2.setFont(new java.awt.Font("BentonSans Book Italic", 1, 12)); // NOI18N
+        jLabel2.setText("AGE");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 140, 40, 30));
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 102, 102));
-        jLabel3.setText("Password");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 240, 80, -1));
+        jLabel3.setFont(new java.awt.Font("BentonSans Book Italic", 1, 12)); // NOI18N
+        jLabel3.setText("PASSWORD");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 80, -1));
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 102, 102));
-        jLabel4.setText("Email-Id");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 250, 70, -1));
+        jLabel4.setFont(new java.awt.Font("BentonSans Book Italic", 1, 12)); // NOI18N
+        jLabel4.setText("EMAIL");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 220, 70, -1));
 
         fnameTF.setBorder(null);
         fnameTF.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        getContentPane().add(fnameTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, 170, 30));
+        getContentPane().add(fnameTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, 150, 20));
 
         lnameTF.setBorder(null);
         lnameTF.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        getContentPane().add(lnameTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 180, 180, 30));
+        getContentPane().add(lnameTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 180, 150, 20));
 
         passwordTF.setBorder(null);
         passwordTF.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
@@ -89,34 +97,36 @@ public class NewUser extends javax.swing.JFrame {
                 passwordTFActionPerformed(evt);
             }
         });
-        getContentPane().add(passwordTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 240, 170, 30));
+        getContentPane().add(passwordTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 220, 150, 20));
 
         emailTF.setBorder(null);
         emailTF.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        getContentPane().add(emailTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 240, 179, 30));
+        getContentPane().add(emailTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 220, 150, 20));
 
-        confirm.setBackground(new java.awt.Color(73, 171, 213));
-        confirm.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        confirm.setForeground(new java.awt.Color(255, 255, 255));
-        confirm.setText("Confirm");
+        confirm.setBackground(new java.awt.Color(204, 204, 204));
+        confirm.setFont(new java.awt.Font("BentonSans Bold", 1, 10)); // NOI18N
+        confirm.setText("CONFIRM");
         confirm.setBorder(null);
         confirm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 confirmActionPerformed(evt);
             }
         });
-        getContentPane().add(confirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 350, 110, 40));
+        getContentPane().add(confirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 350, 150, 30));
 
-        reset.setBackground(new java.awt.Color(73, 171, 213));
-        reset.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        reset.setForeground(new java.awt.Color(255, 255, 255));
-        reset.setText("Reset");
+        reset.setBackground(new java.awt.Color(204, 204, 204));
+        reset.setFont(new java.awt.Font("BentonSans Bold", 1, 10)); // NOI18N
+        reset.setText("RESET");
         reset.setBorder(null);
-        getContentPane().add(reset, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 350, 110, 40));
+        reset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resetActionPerformed(evt);
+            }
+        });
+        getContentPane().add(reset, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 350, 150, 30));
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 102, 102));
-        jLabel5.setText("User Name");
+        jLabel5.setFont(new java.awt.Font("BentonSans Book Italic", 1, 12)); // NOI18N
+        jLabel5.setText("USERNAME");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 80, -1));
 
         unameTF.setBorder(null);
@@ -125,102 +135,105 @@ public class NewUser extends javax.swing.JFrame {
                 unameTFActionPerformed(evt);
             }
         });
-        getContentPane().add(unameTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, 170, 30));
+        getContentPane().add(unameTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 140, 150, 20));
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 102, 102));
-        jLabel7.setText("Last Name");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 180, -1, 30));
+        jLabel7.setFont(new java.awt.Font("BentonSans Book Italic", 1, 12)); // NOI18N
+        jLabel7.setText("LAST NAME");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 180, -1, 20));
 
         ageTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ageTFActionPerformed(evt);
             }
         });
-        getContentPane().add(ageTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 130, 170, 30));
+        getContentPane().add(ageTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 140, 150, 20));
 
-        SignIn.setText("Already Registered ? Sign In");
+        SignIn.setFont(new java.awt.Font("BentonSans Bold", 1, 10)); // NOI18N
+        SignIn.setText("ALREADY REGISTERED? SIGN IN");
         SignIn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SignInActionPerformed(evt);
             }
         });
-        getContentPane().add(SignIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 350, 230, 40));
+        getContentPane().add(SignIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 440, 400, 30));
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 51, 51));
-        jLabel6.setText("Gender");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, 80, -1));
+        jLabel6.setFont(new java.awt.Font("BentonSans Book Italic", 1, 12)); // NOI18N
+        jLabel6.setText("GENDER");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 260, 80, -1));
 
         genderTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 genderTFActionPerformed(evt);
             }
         });
-        getContentPane().add(genderTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 300, 180, -1));
+        getContentPane().add(genderTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 260, 150, 20));
 
+        jLabel8.setFont(new java.awt.Font("BentonSans Book Italic", 2, 10)); // NOI18N
         jLabel8.setText("Type F for female , M for Male, O for other ");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 320, 230, -1));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 290, 230, -1));
+
+        jLabel10.setFont(new java.awt.Font("BentonSans Bold", 1, 18)); // NOI18N
+        jLabel10.setText("NEW USER SIGNUP");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 50, -1, -1));
+
+        jButton1.setFont(new java.awt.Font("BentonSans Bold", 1, 10)); // NOI18N
+        jButton1.setText("BACK TO MAINSCREEN");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 490, 400, 30));
+
+        jLabel9.setFont(new java.awt.Font("BentonSans Bold", 1, 10)); // NOI18N
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bus/booking/system/HKoPzd.jpg"))); // NOI18N
+        jLabel9.setText("jLabel9");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1210, 670));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public void infoMessage(String message,String title)
-    {
-        JOptionPane.showMessageDialog(null,message,title,JOptionPane.INFORMATION_MESSAGE);
+    public void infoMessage(String message, String title) {
+        JOptionPane.showMessageDialog(null, message, title, JOptionPane.INFORMATION_MESSAGE);
     }
     private void confirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmActionPerformed
-String fname = fnameTF.getText();
-String lname= lnameTF.getText();
-String uname= unameTF.getText();
-String password= passwordTF.getText();
-String email= emailTF.getText();
-String gender= genderTF.getText();
-String age = ageTF.getText();
+        String fname = fnameTF.getText();
+        String lname = lnameTF.getText();
+        String uname = unameTF.getText();
+        String password = passwordTF.getText();
+        String email = emailTF.getText();
+        String gender = genderTF.getText();
+        String age = ageTF.getText();
 
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            String databaseURL = "jdbc:postgresql://localhost:5432/postgres";
+            Connection con = DriverManager.getConnection(databaseURL, "postgres", "Stuti@12345");
+            Statement stat = con.createStatement();
 
-try 
-{
-Class.forName("com.mysql.cj.jdbc.Driver");
-String databaseURL = "jdbc:postgresql://localhost:5432/postgres";
-Connection con = DriverManager.getConnection(databaseURL, "postgres", "admin");
-Statement stat =con.createStatement();
+            String selectQuery = "select count(*) from new_user where uname='" + uname + "' and password='" + password + "'";
+            System.out.println(selectQuery);
+            ResultSet rs = stat.executeQuery(selectQuery);
+            System.out.println(rs.next());
+            if (rs.next() == true) {
+                infoMessage("Hmm.. seems like you are already registered ! ", " ALert ");
+            } else {
 
-String selectQuery = "select count(*) from new_user where uname='"+uname+"' and password='"+password+"'";
-System.out.println(selectQuery);
-ResultSet rs= stat.executeQuery(selectQuery);
-System.out.println(rs.next());
-if(rs.next()==true)
-{
-  infoMessage("Hmm.. seems like you are already registered ! "," ALert ");   
-}
-else
-
-{
-    
-    String insertQuery = "insert into new_user(uname,fname,lname,password,email,age,gender) values('"+uname+"','"+fname+"','"+lname+"','"+password+"','"+email+"','"+age+"','"+gender+"')";
-    int x= stat.executeUpdate(insertQuery);
-    System.out.print(x);
-    if(x==1)
-    {
-        infoMessage("User Registered ", " Welcome Rookie ");
-        dispose();
+                String insertQuery = "insert into new_user(uname,fname,lname,password,email,age,gender) values('" + uname + "','" + fname + "','" + lname + "','" + password + "','" + email + "','" + age + "','" + gender + "')";
+                int x = stat.executeUpdate(insertQuery);
+                System.out.print(x);
+                if (x == 1) {
+                    infoMessage("User Registered ", " Welcome Rookie ");
+                    dispose();
 //        Userlogon ln = new Userlogon();
 //        ln.setLocationRelativeTo(null);
 //        ln.setVisible(true);
-    }
-}
-    
-    
+                }
+            }
 
-}
-catch(Exception e)
-        {
+        } catch (Exception e) {
             System.out.println(e);
         }
-
-
-
 
         // TODO add your handling code here:
     }//GEN-LAST:event_confirmActionPerformed
@@ -238,12 +251,10 @@ catch(Exception e)
     }//GEN-LAST:event_ageTFActionPerformed
 
     private void SignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SignInActionPerformed
-    
+
         dispose();
         UserLogon user_logon = new UserLogon();
-    //user_logon.setVisible(true);
-    
-
+        user_logon.setVisible(true);
 
         // TODO add your handling code here:
     }//GEN-LAST:event_SignInActionPerformed
@@ -251,6 +262,18 @@ catch(Exception e)
     private void genderTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_genderTFActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_genderTFActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        dispose();
+        Mainscreen main = new Mainscreen();
+        main.setLocationRelativeTo(null);
+        main.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_resetActionPerformed
 
     /**
      * @param args the command line arguments
@@ -294,7 +317,10 @@ catch(Exception e)
     private javax.swing.JTextField emailTF;
     private javax.swing.JTextField fnameTF;
     private javax.swing.JTextField genderTF;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -302,6 +328,7 @@ catch(Exception e)
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField lnameTF;
     private javax.swing.JPasswordField passwordTF;
     private javax.swing.JButton reset;

@@ -38,42 +38,48 @@ public class DeleteBus extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         bus_numTF = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
 
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("BentonSans Bold", 3, 14)); // NOI18N
         jLabel1.setText("Please enter the BUS ID to delete bus from the database.");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, -1, -1));
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("BentonSans Bold", 3, 18)); // NOI18N
         jLabel5.setText("DELETE BUS DETAILS ");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(226, 26, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("BentonSans Book Italic", 1, 12)); // NOI18N
         jLabel2.setText("BUS ID");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, 87, -1));
-        getContentPane().add(bus_numTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 170, 123, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, 87, -1));
+        getContentPane().add(bus_numTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 180, 150, 20));
 
         jButton1.setBackground(new java.awt.Color(255, 255, 240));
-        jButton1.setText("I am sure I want to delete ");
+        jButton1.setFont(new java.awt.Font("BentonSans Bold", 1, 10)); // NOI18N
+        jButton1.setText("I AM SURE I WANT TO DELETE ");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 280, 270, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 280, 190, -1));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bus/booking/system/oleg-laptev-EA7vfFpTJB4-unsplash.jpg"))); // NOI18N
+        jButton2.setFont(new java.awt.Font("BentonSans Bold", 1, 10)); // NOI18N
+        jButton2.setText("CLOSE");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 280, -1, -1));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bus/booking/system/oli-dale-xjSkI_seiZY-unsplash (1).jpg"))); // NOI18N
         jLabel3.setMaximumSize(new java.awt.Dimension(650, 443));
         jLabel3.setMinimumSize(new java.awt.Dimension(650, 443));
         jLabel3.setPreferredSize(new java.awt.Dimension(650, 443));
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 670, 450));
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel4.setText("DELETE BUS DETAILS ");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(226, 26, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -83,53 +89,48 @@ public void infoMessage(String message, String title) {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         String bus_num = bus_numTF.getText();
-         try {
-            Class.forName("org.postgresql.Driver");
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
             String databaseURL = "jdbc:postgresql://localhost:5432/postgres";
-            Connection con = DriverManager.getConnection(databaseURL, "postgres", "admin");
+            Connection con = DriverManager.getConnection(databaseURL, "postgres", "Stuti@12345");
             Statement stat = con.createStatement();
 
-            String selectQuery = "select bus_num from bus_details where bus_num='" + bus_num + "'";
+            String selectQuery = "select count(*) from bus_details where bus_num='" + bus_num + "'";
 
             ResultSet rs = stat.executeQuery(selectQuery);
-            
-            if(rs.next()==true){
-            //JOptionPane.showMessageDialog(null,"Bus Found!");
-              String Query = "DELETE FROM bus_details where bus_num='" + bus_num + "'";
-             ResultSet x = stat.executeQuery(Query);
-             if(x.next()==true)
-             {
-             JOptionPane.showMessageDialog(null,"Bus Deleted!");
-             }
-            
-            }
-            else{
-            JOptionPane.showMessageDialog(null,"Bus not Found!");
-            }
-           // String Query = "DELETE FROM bus_details where bus_num='" + bus_num + "'";
-            //    stat.executeQuery(Query);
 
-           // System.out.println(rs.next());
-            /*
+            System.out.println(rs.next());
             if (rs.next() == true) {
-                String Query = "DELETE FROM bus_details where bus_num='" + bus_num + "'";
-                stat.executeQuery(Query);
+                infoMessage("Bus doesn't exit ", "Try again!");
 
-                infoMessage("Bus details successfully deleted ", " Great work ! :D  ");
-            } */
+            } else {
+
+                String Query = "DELETE FROM bus_details where bus_num='" + bus_num + "'";
+                int x = stat.executeUpdate(Query);
+                if (x == 1) {
+                    infoMessage("Bus details successfully deleted ", " Great work ! :D  ");
+                    dispose();
+                }
+
+            }
         } catch (Exception e) {
             System.out.println(e);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField bus_numTF;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     // End of variables declaration//GEN-END:variables
 }

@@ -73,10 +73,10 @@ initComponents();
         button.setEnabled(false);
 Class.forName("com.mysql.cj.jdbc.Driver");
 String databaseURL = "jdbc:postgresql://localhost:5432/bus_sys";
-        try (Connection conn = DriverManager.getConnection(databaseURL, "postgres", "root");
+        try (Connection conn = DriverManager.getConnection(databaseURL, "postgres", "Stuti@12345");
                 Statement stmt = conn.createStatement()) {
 
-            ResultSet rs = stmt.executeQuery("select * from master.admin_user");
+            ResultSet rs = stmt.executeQuery("select * from admin_user");
             ResultSetMetaData metaData = rs.getMetaData();
 
             // Names of columns
