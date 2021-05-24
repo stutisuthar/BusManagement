@@ -10,7 +10,6 @@ package bus.booking.system;
 import java.sql.*;
 import java.util.Random;
 import javax.swing.*;
-import java.awt.Color;
 
 /**
  *
@@ -23,7 +22,6 @@ public class Adminlogon extends javax.swing.JFrame {
      */
     public Adminlogon() {
         initComponents();
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
     
 
@@ -47,7 +45,7 @@ public class Adminlogon extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         adminPF = new javax.swing.JPasswordField();
-        jLabel7 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(706, 407));
@@ -62,33 +60,28 @@ public class Adminlogon extends javax.swing.JFrame {
         jLabel6.setMinimumSize(new java.awt.Dimension(50, 50));
         jLabel6.setPreferredSize(new java.awt.Dimension(50, 50));
         jLabel6.setRequestFocusEnabled(false);
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 20, 190, 210));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 200, 190, 210));
 
-        panel1.setBackground(new Color(0.65f,0.73f,1.00f,0.3f));
+        panel1.setBackground(new java.awt.Color(255, 212, 114));
         panel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("BentonSans Book Italic", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("ADMIN LOGIN");
-        panel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, 171, -1));
+        panel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 171, -1));
 
-        jLabel2.setFont(new java.awt.Font("BentonSans Book Italic", 1, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setText("USERNAME");
-        panel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, -1, -1));
+        panel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("BentonSans Regular Italic", 1, 12)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Tahoma", 2, 12)); // NOI18N
         jLabel3.setText("Not an admin?");
-        panel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 250, 140, -1));
+        panel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 220, 140, -1));
 
-        adminTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                adminTFActionPerformed(evt);
-            }
-        });
-        panel1.add(adminTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, 250, 20));
+        adminTF.setBackground(new java.awt.Color(255, 255, 204));
+        panel1.add(adminTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 250, -1));
 
         login.setBackground(new java.awt.Color(255, 255, 240));
-        login.setFont(new java.awt.Font("BentonSans Bold", 0, 10)); // NOI18N
         login.setText("LOGIN");
         login.setBorder(null);
         login.addActionListener(new java.awt.event.ActionListener() {
@@ -96,10 +89,9 @@ public class Adminlogon extends javax.swing.JFrame {
                 loginActionPerformed(evt);
             }
         });
-        panel1.add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, 110, 20));
+        panel1.add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 110, 20));
 
         jButton2.setBackground(new java.awt.Color(255, 255, 240));
-        jButton2.setFont(new java.awt.Font("BentonSans Bold", 0, 10)); // NOI18N
         jButton2.setText("RESET");
         jButton2.setBorder(null);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -107,10 +99,9 @@ public class Adminlogon extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        panel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 190, 110, 20));
+        panel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 180, 110, 20));
 
         jButton3.setBackground(new java.awt.Color(255, 255, 240));
-        jButton3.setFont(new java.awt.Font("BentonSans Book Italic", 1, 12)); // NOI18N
         jButton3.setText("BACK TO MAINSCREEN");
         jButton3.setBorder(null);
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -118,25 +109,24 @@ public class Adminlogon extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        panel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 270, 200, 20));
+        panel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 220, 20));
 
-        jLabel5.setFont(new java.awt.Font("BentonSans Book Italic", 1, 12)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel5.setText("PASSWORD");
-        panel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 130, 140, -1));
+        panel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 140, -1));
 
-        adminPF.setText("jPasswordField1");
         adminPF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 adminPFActionPerformed(evt);
             }
         });
-        panel1.add(adminPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 150, 250, 20));
+        panel1.add(adminPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 250, -1));
 
-        getContentPane().add(panel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 240, 550, 310));
+        getContentPane().add(panel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 270, 270));
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bus/booking/system/HKoPzd.jpg"))); // NOI18N
-        jLabel7.setText("jLabel7");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1380, -1));
+        jLabel4.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bus/booking/system/JoshuaSong_Unsplash_vancouvertrain.5ff33c5aba7f5.png"))); // NOI18N
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(-30, -80, 820, 680));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -153,7 +143,7 @@ public void infoMessage(String message,String title)
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             String databaseURL = "jdbc:postgresql://localhost:5432/postgres";
-            Connection con = DriverManager.getConnection(databaseURL, "postgres", "Stuti@12345");
+            Connection con = DriverManager.getConnection(databaseURL, "postgres", "admin");
 
             String selectQuery = "select uname,password from admin_user where uname='" + uname + "' and password='" + password + "'";
             Statement stat = con.createStatement();
@@ -204,10 +194,6 @@ public void infoMessage(String message,String title)
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void adminTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminTFActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_adminTFActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -251,9 +237,9 @@ public void infoMessage(String message,String title)
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JButton login;
     private java.awt.Panel panel1;
     // End of variables declaration//GEN-END:variables

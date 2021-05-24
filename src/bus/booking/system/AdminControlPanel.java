@@ -4,8 +4,6 @@
  * and open the template in the editor.
  */
 package bus.booking.system;
-import javax.swing.JFrame;
-import java.awt.Color;
 
 /**
  *
@@ -20,7 +18,6 @@ public class AdminControlPanel extends javax.swing.JFrame {
     public AdminControlPanel() {
       
         initComponents();
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
     String adminuser;
     public AdminControlPanel(String auser) {
@@ -41,14 +38,15 @@ public class AdminControlPanel extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jDesktopPane2 = new javax.swing.JDesktopPane();
-        jLabel2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu5 = new javax.swing.JMenu();
         addBus = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem7 = new javax.swing.JMenuItem();
         jMenuItem8 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem11 = new javax.swing.JMenuItem();
+        jMenuItem12 = new javax.swing.JMenuItem();
         jMenuItem13 = new javax.swing.JMenuItem();
         jMenuItem14 = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
@@ -56,35 +54,23 @@ public class AdminControlPanel extends javax.swing.JFrame {
         jMenu3 = new javax.swing.JMenu();
         jMenuItem16 = new javax.swing.JMenuItem();
         jMenuItem17 = new javax.swing.JMenuItem();
-        jMenuItem19 = new javax.swing.JMenuItem();
         jMenu7 = new javax.swing.JMenu();
         jMenuItem18 = new javax.swing.JMenuItem();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("Welcome ");
 
-        jDesktopPane2.setBackground(new Color(0.18f,0.15f,0.16f,1.0f));
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bus/booking/system/oli-dale-xjSkI_seiZY-unsplash (1).jpg"))); // NOI18N
-
-        jDesktopPane2.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
         javax.swing.GroupLayout jDesktopPane2Layout = new javax.swing.GroupLayout(jDesktopPane2);
         jDesktopPane2.setLayout(jDesktopPane2Layout);
         jDesktopPane2Layout.setHorizontalGroup(
             jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 1405, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         jDesktopPane2Layout.setVerticalGroup(
             jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDesktopPane2Layout.createSequentialGroup()
-                .addComponent(jLabel2)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addGap(0, 479, Short.MAX_VALUE)
         );
 
         jMenu5.setText("Manage Bus");
@@ -97,6 +83,14 @@ public class AdminControlPanel extends javax.swing.JFrame {
             }
         });
         jMenu5.add(addBus);
+
+        jMenuItem6.setText("Edit Bus Details");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jMenuItem6);
 
         jMenuItem7.setText("Delete Bus");
         jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
@@ -126,20 +120,18 @@ public class AdminControlPanel extends javax.swing.JFrame {
         });
         jMenu4.add(jMenuItem11);
 
-        jMenuItem13.setText("Delete Employee");
-        jMenuItem13.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem12.setText("Edit Details");
+        jMenuItem12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem13ActionPerformed(evt);
+                jMenuItem12ActionPerformed(evt);
             }
         });
+        jMenu4.add(jMenuItem12);
+
+        jMenuItem13.setText("Delete Details");
         jMenu4.add(jMenuItem13);
 
         jMenuItem14.setText("All Employees");
-        jMenuItem14.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem14ActionPerformed(evt);
-            }
-        });
         jMenu4.add(jMenuItem14);
 
         jMenuBar1.add(jMenu4);
@@ -147,11 +139,6 @@ public class AdminControlPanel extends javax.swing.JFrame {
         jMenu6.setText("Booking");
 
         jMenuItem15.setText("Booking Details");
-        jMenuItem15.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem15ActionPerformed(evt);
-            }
-        });
         jMenu6.add(jMenuItem15);
 
         jMenuBar1.add(jMenu6);
@@ -161,11 +148,8 @@ public class AdminControlPanel extends javax.swing.JFrame {
         jMenuItem16.setText("Add Admin");
         jMenu3.add(jMenuItem16);
 
-        jMenuItem17.setText("Delete Admin ");
+        jMenuItem17.setText("Edit Admin ");
         jMenu3.add(jMenuItem17);
-
-        jMenuItem19.setText("Show all Admin ");
-        jMenu3.add(jMenuItem19);
 
         jMenuBar1.add(jMenu3);
 
@@ -176,26 +160,6 @@ public class AdminControlPanel extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu7);
 
-        jMenu1.setText("Logout");
-
-        jMenuItem1.setText("Mainscreen");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem1);
-
-        jMenuItem2.setText("Exit");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem2);
-
-        jMenuBar1.add(jMenu1);
-
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -203,23 +167,29 @@ public class AdminControlPanel extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(907, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(114, 114, 114))
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jDesktopPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jDesktopPane2)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jDesktopPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22)
+                .addComponent(jDesktopPane2))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        // TODO add your handling code here:
+        EditBus edit_bus = new EditBus();
+          jDesktopPane2.add(edit_bus);
+        edit_bus.show();
+        
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
         // TODO add your handling code here:
@@ -227,6 +197,10 @@ public class AdminControlPanel extends javax.swing.JFrame {
         jDesktopPane2.add(dl);
         dl.show();
     }//GEN-LAST:event_jMenuItem7ActionPerformed
+
+    private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem12ActionPerformed
 
     private void addBusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBusActionPerformed
         // TODO add your handling code here:
@@ -251,37 +225,6 @@ public class AdminControlPanel extends javax.swing.JFrame {
         ade.show();
    
     }//GEN-LAST:event_jMenuItem11ActionPerformed
-
-    private void jMenuItem15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem15ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem15ActionPerformed
-
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        // TODO add your handling code here:
-        dispose();
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
-
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
-        dispose();
-        Mainscreen main = new Mainscreen();
-        main.setLocationRelativeTo(null);
-        main.setVisible(true);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
-
-    private void jMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem13ActionPerformed
-        // TODO add your handling code here:
-        DeleteEmp de = new DeleteEmp();
-        jDesktopPane2.add(de);
-        de.show();
-    }//GEN-LAST:event_jMenuItem13ActionPerformed
-
-    private void jMenuItem14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem14ActionPerformed
-        // TODO add your handling code here:
-        EmpDetails all = new EmpDetails();
-        jDesktopPane2.add(all);
-        all.show();
-    }//GEN-LAST:event_jMenuItem14ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -323,24 +266,21 @@ public class AdminControlPanel extends javax.swing.JFrame {
     private javax.swing.JMenuItem addBus;
     private javax.swing.JDesktopPane jDesktopPane2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem11;
+    private javax.swing.JMenuItem jMenuItem12;
     private javax.swing.JMenuItem jMenuItem13;
     private javax.swing.JMenuItem jMenuItem14;
     private javax.swing.JMenuItem jMenuItem15;
     private javax.swing.JMenuItem jMenuItem16;
     private javax.swing.JMenuItem jMenuItem17;
     private javax.swing.JMenuItem jMenuItem18;
-    private javax.swing.JMenuItem jMenuItem19;
-    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     // End of variables declaration//GEN-END:variables

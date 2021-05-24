@@ -9,41 +9,47 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import javax.swing.JOptionPane;
 
 /**
  *
  * @author I524925
  */
+
+
 public class AddEmp extends javax.swing.JInternalFrame {
 
+    
     /**
      * Creates new form AddEmp
      */
     public AddEmp() {
         initComponents();
-
-        try {
+        
+               try {
             Class.forName("org.postgresql.Driver");
             String databaseURL = "jdbc:postgresql://localhost:5432/postgres";
-            Connection con = DriverManager.getConnection(databaseURL, "postgres", "Stuti@12345");
+            Connection con = DriverManager.getConnection(databaseURL, "postgres", "admin");
             Statement stat = con.createStatement();
 
             String selectQuery = "select bus_num from bus_details";
 
             ResultSet rs = stat.executeQuery(selectQuery);
+            
 
-            while (rs.next()) {
-                String bus_num = rs.getString("bus_num");
-                jComboBox1.addItem(bus_num);
-            }
+         while(rs.next()){
+             String bus_num = rs.getString("bus_num");
+         jComboBox1.addItem(bus_num);
+         }
 
-            con.close();
-
+ con.close();
+            
         } catch (Exception e) {
             System.out.println(e);
         }
-
+            
+        
+       
+        
     }
 
     /**
@@ -65,7 +71,6 @@ public class AddEmp extends javax.swing.JInternalFrame {
         jLabel6 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
@@ -75,71 +80,55 @@ public class AddEmp extends javax.swing.JInternalFrame {
         setPreferredSize(new java.awt.Dimension(650, 443));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("BentonSans Book Italic", 1, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel2.setText("NAME ");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, 99, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 90, 99, -1));
 
-        jLabel3.setFont(new java.awt.Font("BentonSans Book Italic", 1, 12)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel3.setText("EMP ID ");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, 99, -1));
 
-        jLabel4.setFont(new java.awt.Font("BentonSans Book Italic", 1, 12)); // NOI18N
-        jLabel4.setText("PHONE");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, 99, -1));
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel4.setText("PHONE NUMBER");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, 99, -1));
 
-        jLabel5.setFont(new java.awt.Font("BentonSans Book Italic", 1, 12)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel5.setText("MAP TO : (BUS#)");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, 120, -1));
-        getContentPane().add(empNameTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 100, 150, 20));
-        getContentPane().add(empIdTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 130, 150, 20));
-        getContentPane().add(empPhTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 160, 150, 20));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, 120, -1));
+        getContentPane().add(empNameTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 90, 161, -1));
+        getContentPane().add(empIdTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 130, 161, -1));
+        getContentPane().add(empPhTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 170, 160, 20));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel6.setText("+91");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 160, -1, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 170, -1, -1));
 
         jButton1.setBackground(new java.awt.Color(254, 255, 240));
-        jButton1.setFont(new java.awt.Font("BentonSans Bold", 1, 10)); // NOI18N
-        jButton1.setText("CONFIRM");
+        jButton1.setText("Confirm");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 280, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 280, -1, -1));
 
         jButton2.setBackground(new java.awt.Color(254, 255, 240));
-        jButton2.setFont(new java.awt.Font("BentonSans Bold", 1, 10)); // NOI18N
-        jButton2.setText("RESET");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 280, 69, -1));
+        jButton2.setText("Reset");
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 280, 69, -1));
 
-        jButton3.setFont(new java.awt.Font("BentonSans Bold", 1, 10)); // NOI18N
-        jButton3.setText("CLOSE");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 280, -1, -1));
-
-        jLabel8.setFont(new java.awt.Font("BentonSans Bold", 3, 18)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel8.setText("ADD EMPLOYEE");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, 170, -1));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, -1, -1));
 
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 190, 150, 20));
+        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 210, 160, -1));
 
         jLabel1.setBackground(new java.awt.Color(254, 255, 240));
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bus/booking/system/oli-dale-xjSkI_seiZY-unsplash (1).jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bus/booking/system/oleg-laptev-EA7vfFpTJB4-unsplash.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 420));
 
         pack();
@@ -147,62 +136,58 @@ public class AddEmp extends javax.swing.JInternalFrame {
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
-
-    public void infoMessage(String message, String title) {
-        JOptionPane.showMessageDialog(null, message, title, JOptionPane.INFORMATION_MESSAGE);
-    }
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-
-        String ename = empNameTF.getText();
-        String eid = empIdTF.getText();
-        String phone = empPhTF.getText();
-        String bus = (String)jComboBox1.getSelectedItem();
-
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
+      /*  
+       try {
+            Class.forName("org.postgresql.Driver");
             String databaseURL = "jdbc:postgresql://localhost:5432/postgres";
-            Connection con = DriverManager.getConnection(databaseURL, "postgres", "Stuti@12345");
+            Connection con = DriverManager.getConnection(databaseURL, "postgres", "admin");
             Statement stat = con.createStatement();
 
-            String selectQuery = "select count(*) from emp_details where eid='" + eid + "'";
-            System.out.println(selectQuery);
+            String selectQuery = "select bus_num from bus_details";
 
             ResultSet rs = stat.executeQuery(selectQuery);
+            
 
-            System.out.println(rs.next());
-            if (rs.next() == true) {
-                infoMessage("Hmm.. seems like the employee are already registered ! ", " ALert ");
-            } else {
+         while(rs.next()){
+             String bus_num = rs.getString("bus_num");
+         jComboBox1.addItem(bus_num);
+         }
 
-                String insertQuery = "insert into emp_details(name,phone,bus_num,eid) values('" + ename + "','" + phone + "','" + bus + "','" + eid + "')";
-                int x = stat.executeUpdate(insertQuery);
-                System.out.print(x);
-                if (x == 1) {
-                    infoMessage("Employee Registered ", " Welcome Rookie ");
-                    dispose();
-
-                }
-            }
+ con.close();
+            
         } catch (Exception e) {
             System.out.println(e);
         }
+         */   
+            
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+      /*   try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            String databaseURL = "jdbc:postgresql://localhost:5432/postgres";
+            Connection con = DriverManager.getConnection(databaseURL, "postgres", "admin");
+            Statement stat = con.createStatement();
+
+            String selectQuery = "select bus_num from bus_details";
+
+            ResultSet rs = stat.executeQuery(selectQuery);
+            
+while(rs.next()){
+           System.out.print(rs.getString(1));
+           jLabel7.setText(rs.getString(1));
+           jComboBox1.addItem(rs.getString(1));
+
+}
+            
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+*/
+            
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-        dispose();
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        empIdTF.setText(null);
-        empNameTF.setText(null);
-        empPhTF.setText(null);
-    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -211,7 +196,6 @@ public class AddEmp extends javax.swing.JInternalFrame {
     private javax.swing.JTextField empPhTF;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

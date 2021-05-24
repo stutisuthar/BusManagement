@@ -5,6 +5,12 @@
  */
 package bus.booking.system;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.Arrays;
+
 /**
  *
  * @author I524925
@@ -14,10 +20,77 @@ public class AddSeat extends javax.swing.JFrame {
     /**
      * Creates new form Booking
      */
+    String seats="";
+    
     public AddSeat() {
         initComponents();
+        
     }
 
+    int seat;
+    String seatValue ;
+    String Bus;
+    public AddSeat(int seats, String bus){
+    seat = seats;
+    Bus = bus;
+    initComponents();
+    
+     try {
+            Class.forName("org.postgresql.Driver");
+            String databaseURL = "jdbc:postgresql://localhost:5432/postgres";
+            Connection con = DriverManager.getConnection(databaseURL, "postgres", "admin");
+            
+           String selectQuery = "select * from bus_bookings where bus_num='" +Bus  + "'";        
+           Statement stat = con.createStatement();
+
+           ResultSet rs = stat.executeQuery(selectQuery);
+           
+           
+            while(rs.next()){
+            System.out.println(rs.getString("seat"));
+            String bus_number = rs.getString("seat");
+            
+            switch(bus_number){
+            case("01"): {seat1.setEnabled(false);break;}
+            case("02"): {seat2.setEnabled(false);break;}
+            case("03"): {seat3.setEnabled(false);break;}
+            case("04"): {seat4.setEnabled(false);break;}
+            case("05"): {seat5.setEnabled(false);break;}
+            case("06"): {seat6.setEnabled(false);break;}
+            case("07"): {seat7.setEnabled(false);break;}
+            case("08"): {seat8.setEnabled(false);break;}
+            case("09"): {seat9.setEnabled(false);break;}
+            case("10"): {seat10.setEnabled(false);break;}
+            case("11"): {seat11.setEnabled(false);break;}
+            case("12"): {seat12.setEnabled(false);break;}
+            case("13"): {seat13.setEnabled(false);break;}
+            case("14"): {seat14.setEnabled(false);break;}
+            case("15"): {seat15.setEnabled(false);break;}
+            case("16"): {seat16.setEnabled(false);break;}
+            case("17"): {seat17.setEnabled(false);break;}
+            case("18"): {seat18.setEnabled(false);break;}
+            case("19"): {seat19.setEnabled(false);break;}
+            case("20"): {seat20.setEnabled(false);break;}
+            case("21"): {seat21.setEnabled(false);break;}
+            case("22"): {seat22.setEnabled(false);break;}
+            case("23"): {seat23.setEnabled(false);break;}
+            case("24"): {seat24.setEnabled(false);break;}
+            case("25"): {seat25.setEnabled(false);break;}
+            case("26"): {seat26.setEnabled(false);break;}
+            case("27"): {seat27.setEnabled(false);break;}
+            case("28"): {seat28.setEnabled(false);break;}
+            case("29"): {seat29.setEnabled(false);break;}
+            case("30"): {seat30.setEnabled(false);break;}
+            }
+            
+             };
+           
+            
+         }catch(Exception e){
+         System.out.println(e);
+         }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -62,20 +135,35 @@ public class AddSeat extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        Clear = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         seat1.setText("01");
         seat1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bus/booking/system/seat.png"))); // NOI18N
+        seat1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seat1ActionPerformed(evt);
+            }
+        });
 
         seat2.setText("02");
         seat2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bus/booking/system/seat.png"))); // NOI18N
+        seat2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seat2ActionPerformed(evt);
+            }
+        });
 
         seat3.setText("03");
         seat3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bus/booking/system/seat.png"))); // NOI18N
+        seat3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seat3ActionPerformed(evt);
+            }
+        });
 
         seat4.setText("04");
         seat4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bus/booking/system/seat.png"))); // NOI18N
@@ -87,21 +175,51 @@ public class AddSeat extends javax.swing.JFrame {
 
         seat5.setText("05");
         seat5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bus/booking/system/seat.png"))); // NOI18N
+        seat5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seat5ActionPerformed(evt);
+            }
+        });
 
         seat6.setText("06");
         seat6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bus/booking/system/seat.png"))); // NOI18N
+        seat6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seat6ActionPerformed(evt);
+            }
+        });
 
         seat7.setText("07");
         seat7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bus/booking/system/seat.png"))); // NOI18N
+        seat7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seat7ActionPerformed(evt);
+            }
+        });
 
         seat8.setText("08");
         seat8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bus/booking/system/seat.png"))); // NOI18N
+        seat8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seat8ActionPerformed(evt);
+            }
+        });
 
         seat9.setText("09");
         seat9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bus/booking/system/seat.png"))); // NOI18N
+        seat9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seat9ActionPerformed(evt);
+            }
+        });
 
         seat10.setText("10");
         seat10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bus/booking/system/seat.png"))); // NOI18N
+        seat10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seat10ActionPerformed(evt);
+            }
+        });
 
         seat11.setText("11");
         seat11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bus/booking/system/seat.png"))); // NOI18N
@@ -113,6 +231,11 @@ public class AddSeat extends javax.swing.JFrame {
 
         seat12.setText("12");
         seat12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bus/booking/system/seat.png"))); // NOI18N
+        seat12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seat12ActionPerformed(evt);
+            }
+        });
 
         seat13.setText("13");
         seat13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bus/booking/system/seat.png"))); // NOI18N
@@ -140,24 +263,60 @@ public class AddSeat extends javax.swing.JFrame {
 
         seat16.setText("16");
         seat16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bus/booking/system/seat.png"))); // NOI18N
+        seat16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seat16ActionPerformed(evt);
+            }
+        });
 
         seat17.setText("17");
         seat17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bus/booking/system/seat.png"))); // NOI18N
+        seat17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seat17ActionPerformed(evt);
+            }
+        });
 
         seat18.setText("18");
         seat18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bus/booking/system/seat.png"))); // NOI18N
+        seat18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seat18ActionPerformed(evt);
+            }
+        });
 
         seat19.setText("19");
         seat19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bus/booking/system/seat.png"))); // NOI18N
+        seat19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seat19ActionPerformed(evt);
+            }
+        });
 
         seat20.setText("20");
         seat20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bus/booking/system/seat.png"))); // NOI18N
+        seat20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seat20ActionPerformed(evt);
+            }
+        });
 
         seat21.setText("21");
+        seat21.setToolTipText("");
         seat21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bus/booking/system/seat.png"))); // NOI18N
+        seat21.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seat21ActionPerformed(evt);
+            }
+        });
 
         seat22.setText("22");
         seat22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bus/booking/system/seat.png"))); // NOI18N
+        seat22.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seat22ActionPerformed(evt);
+            }
+        });
 
         seat23.setText("23");
         seat23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bus/booking/system/seat.png"))); // NOI18N
@@ -168,25 +327,61 @@ public class AddSeat extends javax.swing.JFrame {
         });
 
         seat24.setText("24");
+        seat24.setToolTipText("");
         seat24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bus/booking/system/seat.png"))); // NOI18N
+        seat24.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seat24ActionPerformed(evt);
+            }
+        });
 
         seat25.setText("25");
         seat25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bus/booking/system/seat.png"))); // NOI18N
+        seat25.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seat25ActionPerformed(evt);
+            }
+        });
 
         seat26.setText("26");
         seat26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bus/booking/system/seat.png"))); // NOI18N
+        seat26.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seat26ActionPerformed(evt);
+            }
+        });
 
         seat27.setText("27");
         seat27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bus/booking/system/seat.png"))); // NOI18N
+        seat27.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seat27ActionPerformed(evt);
+            }
+        });
 
         seat28.setText("28");
         seat28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bus/booking/system/seat.png"))); // NOI18N
+        seat28.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seat28ActionPerformed(evt);
+            }
+        });
 
         seat29.setText("29");
         seat29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bus/booking/system/seat.png"))); // NOI18N
+        seat29.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seat29ActionPerformed(evt);
+            }
+        });
 
         seat30.setText("30");
         seat30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bus/booking/system/seat.png"))); // NOI18N
+        seat30.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seat30ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bus/booking/system/door.png"))); // NOI18N
         jLabel1.setText("Door");
@@ -196,95 +391,126 @@ public class AddSeat extends javax.swing.JFrame {
 
         jLabel3.setText("Selected Seats ");
 
-        jLabel4.setText("Booking  Amount ");
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("Next >>");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Cancel");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        Clear.setText("Clear");
+        Clear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ClearActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(seat16)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(seat17)
-                                .addGap(107, 107, 107)
-                                .addComponent(seat18)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(seat19)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(seat20))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(seat11)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(seat12)
-                                .addGap(107, 107, 107)
-                                .addComponent(seat13)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(seat14)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(seat15))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(seat6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(seat7)
-                                .addGap(107, 107, 107)
-                                .addComponent(seat8)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(seat9)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(seat10))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(seat26)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(seat27)
-                                .addGap(107, 107, 107)
-                                .addComponent(seat28)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(seat29)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(seat30))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(seat21)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(seat22)
-                                .addGap(107, 107, 107)
-                                .addComponent(seat23)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(seat24)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(seat25))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(seat1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(seat2)
-                                .addGap(107, 107, 107)
-                                .addComponent(seat3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(seat4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(seat5))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel1))))
+                                .addComponent(jLabel1))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(seat16)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(seat17)
+                                        .addGap(107, 107, 107)
+                                        .addComponent(seat18)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(seat19)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(seat20))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(seat11)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(seat12)
+                                        .addGap(107, 107, 107)
+                                        .addComponent(seat13)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(seat14)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(seat15))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(seat26)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(seat27)
+                                        .addGap(107, 107, 107)
+                                        .addComponent(seat28)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(seat29)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(seat30))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(seat21)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(seat22)
+                                        .addGap(107, 107, 107)
+                                        .addComponent(seat23)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(seat24)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(seat25))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(seat6)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(seat7))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(seat1)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(seat2)))
+                                        .addGap(95, 95, 95)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(seat8)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(seat9)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(seat10))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(seat3)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(seat4)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(seat5)))))
+                                .addGap(10, 10, 10)))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(106, 106, 106)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(8, 8, 8)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField1)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE))
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Clear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -341,41 +567,441 @@ public class AddSeat extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
                             .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(12, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton2)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Clear)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void seat11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seat11ActionPerformed
-        // TODO add your handling code here:
+if(seat>0)
+{// TODO add your handling code here:
+        seats = seats+seat11.getText();
+        jTextField1.setText(seats);
+        seat11.setEnabled(false);
+        seat-=1;
+}
     }//GEN-LAST:event_seat11ActionPerformed
 
     private void seat13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seat13ActionPerformed
         // TODO add your handling code here:
+        if(seat >0)
+        {
+           seats = seats+seat13.getText();
+        jTextField1.setText(seats);
+        seat13.setEnabled(false);
+        seat -= 1;
+        }
     }//GEN-LAST:event_seat13ActionPerformed
 
     private void seat14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seat14ActionPerformed
         // TODO add your handling code here:
+        if(seat >0)
+        {
+          seats = seats+seat14.getText();
+        jTextField1.setText(seats);
+        seat14.setEnabled(false);
+        seat -= 1;
+        }
     }//GEN-LAST:event_seat14ActionPerformed
 
     private void seat15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seat15ActionPerformed
         // TODO add your handling code here:
+        if(seat >0)
+        {
+          seats = seats+seat15.getText();
+        jTextField1.setText(seats);
+        seat15.setEnabled(false);
+        seat -=1;
+        }
     }//GEN-LAST:event_seat15ActionPerformed
 
     private void seat23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seat23ActionPerformed
         // TODO add your handling code here:
+        if(seat >0)
+        {
+          seats = seats+seat23.getText();
+        jTextField1.setText(seats);
+        seat23.setEnabled(false);
+        seat -=1;
+        }
     }//GEN-LAST:event_seat23ActionPerformed
 
     private void seat4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seat4ActionPerformed
         // TODO add your handling code here:
+        if(seat >0)
+        {
+          seats = seats+seat4.getText();
+        jTextField1.setText(seats);
+        seat4.setEnabled(false);
+        seat -=1;
+        }
     }//GEN-LAST:event_seat4ActionPerformed
 
+    private void seat1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seat1ActionPerformed
+        // TODO add your handling code here:
+        if(seat >0)
+        {
+          seats = seats+seat1.getText();
+        jTextField1.setText(seats);
+        seat1.setEnabled(false);
+        seat -=1;
+        seatValue=seat1.getText();
+        }
+    }//GEN-LAST:event_seat1ActionPerformed
+
+    private void seat5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seat5ActionPerformed
+        // TODO add your handling code here:
+        if(seat >0)
+        {
+         seats = seats+seat5.getText();
+        jTextField1.setText(seats);
+        seat5.setEnabled(false);
+        seat -=1;
+        }
+    }//GEN-LAST:event_seat5ActionPerformed
+
+    private void seat30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seat30ActionPerformed
+        // TODO add your handling code here:
+        if(seat >0)
+        {
+          seats = seats+seat30.getText();
+        jTextField1.setText(seats);
+        seat30.setEnabled(false);
+        seat -=1;
+        }
+    }//GEN-LAST:event_seat30ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void seat2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seat2ActionPerformed
+        // TODO add your handling code here:
+        if(seat >0)
+        {
+          seats = seats+seat2.getText();
+        jTextField1.setText(seats);
+        seat2.setEnabled(false);
+        seat -=1;
+        }
+    }//GEN-LAST:event_seat2ActionPerformed
+
+    private void seat3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seat3ActionPerformed
+        // TODO add your handling code here:
+        if(seat >0)
+        {
+         seats = seats+seat3.getText();
+        jTextField1.setText(seats);
+        seat3.setEnabled(false);
+        seat -=1;
+        }
+    }//GEN-LAST:event_seat3ActionPerformed
+
+    private void seat6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seat6ActionPerformed
+  if(seat >0)
+        {
+        seats = seats+seat6.getText();
+        jTextField1.setText(seats);
+        seat6.setEnabled(false);     
+        seat -=1;
+        }// TODO add your handling code here:
+    }//GEN-LAST:event_seat6ActionPerformed
+
+    private void seat7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seat7ActionPerformed
+ if(seat >0)
+        {
+        seats = seats+seat7.getText();
+        jTextField1.setText(seats);
+        seat7.setEnabled(false); 
+        seat -=1;
+        }// TODO add your handling code here:
+    }//GEN-LAST:event_seat7ActionPerformed
+
+    private void seat8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seat8ActionPerformed
+ 
+        if(seat >0)
+        {
+            seats = seats+seat8.getText();
+        
+        jTextField1.setText(seats);
+        seat8.setEnabled(false);  
+        seat -=1;
+        }// TODO add your handling code here:
+    }//GEN-LAST:event_seat8ActionPerformed
+
+    private void seat9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seat9ActionPerformed
+ if(seat >0)
+        {
+        seats = seats+seat9.getText();
+        jTextField1.setText(seats);
+        seat9.setEnabled(false); 
+        seat -=1;
+        
+        }// TODO add your handling code here:
+    }//GEN-LAST:event_seat9ActionPerformed
+
+    private void seat10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seat10ActionPerformed
+ if(seat >0)
+        {
+        seats = seats+seat10.getText();
+        jTextField1.setText(seats);
+        seat10.setEnabled(false);   
+        seat -=1;
+        }// TODO add your handling code here:
+    }//GEN-LAST:event_seat10ActionPerformed
+
+    private void seat12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seat12ActionPerformed
+  if(seat >0)
+        {
+        seats = seats+seat12.getText();
+        jTextField1.setText(seats);
+        seat12.setEnabled(false); 
+        seat -=1;
+        }// TODO add your handling code here:
+    }//GEN-LAST:event_seat12ActionPerformed
+
+    private void seat16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seat16ActionPerformed
+ if(seat >0)
+        {
+        seats = seats+seat16.getText();
+        jTextField1.setText(seats);
+        seat16.setEnabled(false);  
+        seat -=1;
+        }// TODO add your handling code here:
+    }//GEN-LAST:event_seat16ActionPerformed
+
+    private void seat17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seat17ActionPerformed
+ if(seat >0)
+        {
+        seats = seats+seat17.getText();
+        jTextField1.setText(seats);
+        seat17.setEnabled(false);    
+        seat -=1;
+        }// TODO add your handling code here:
+    }//GEN-LAST:event_seat17ActionPerformed
+
+    private void seat18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seat18ActionPerformed
+  if(seat >0)
+        {
+            seats = seats+seat18.getText();
+        
+        jTextField1.setText(seats);
+        seat18.setEnabled(false);    
+        seat -=1;
+        }// TODO add your handling code here:
+    }//GEN-LAST:event_seat18ActionPerformed
+
+    private void seat19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seat19ActionPerformed
+  if(seat >0)
+        {
+        seats = seats+seat19.getText();
+        jTextField1.setText(seats);
+        seat19.setEnabled(false);  
+        seat -=1;
+        }// TODO add your handling code here:
+    }//GEN-LAST:event_seat19ActionPerformed
+
+    private void seat20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seat20ActionPerformed
+ if(seat >0)
+        {
+        seats = seats+seat20.getText();
+        jTextField1.setText(seats);
+        seat20.setEnabled(false); 
+        seat -=1;
+        }// TODO add your handling code here:
+    }//GEN-LAST:event_seat20ActionPerformed
+
+    private void seat21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seat21ActionPerformed
+        // TODO add your handling code here:
+        // TODO add your handling code here:
+        if(seat >0)
+        {
+       seats = seats+seat21.getText();
+        jTextField1.setText(seats);
+        seat21.setEnabled(false);
+        seat -=1;
+        }
+    }//GEN-LAST:event_seat21ActionPerformed
+
+    private void seat22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seat22ActionPerformed
+ if(seat >0)
+        {
+        seats = seats+seat22.getText();
+        jTextField1.setText(seats);
+        seat22.setEnabled(false);    
+        seat -=1;
+        }// TODO add your handling code here:
+    }//GEN-LAST:event_seat22ActionPerformed
+
+    private void seat24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seat24ActionPerformed
+ if(seat >0)
+        {
+        seats = seats+seat24.getText();
+        jTextField1.setText(seats);
+        seat24.setEnabled(false); 
+        seat -=1;
+        }// TODO add your handling code here:
+    }//GEN-LAST:event_seat24ActionPerformed
+
+    private void seat25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seat25ActionPerformed
+ if(seat >0)
+        {
+        seats = seats+seat25.getText();
+        jTextField1.setText(seats);
+        seat25.setEnabled(false);  
+        seat -=1;
+        }// TODO add your handling code here:
+    }//GEN-LAST:event_seat25ActionPerformed
+
+    private void seat26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seat26ActionPerformed
+ if(seat >0)
+        {
+        seats = seats+seat26.getText();
+        jTextField1.setText(seats);
+        seat26.setEnabled(false);      
+        seat -=1;
+        }// TODO add your handling code here:
+    }//GEN-LAST:event_seat26ActionPerformed
+
+    private void seat27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seat27ActionPerformed
+ if(seat >0)
+        {
+        seats = seats+seat27.getText();
+        jTextField1.setText(seats);
+        seat27.setEnabled(false);  
+        seat -=1;
+        }// TODO add your handling code here:
+    }//GEN-LAST:event_seat27ActionPerformed
+
+    private void seat28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seat28ActionPerformed
+ if(seat >0)
+        {
+        seats = seats+seat28.getText();
+        jTextField1.setText(seats);
+        seat28.setEnabled(false);   
+        seat -=1;
+        }// TODO add your handling code here:
+    }//GEN-LAST:event_seat28ActionPerformed
+
+    private void seat29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seat29ActionPerformed
+ if(seat >0)
+        {
+        seats = seats+seat29.getText();
+        jTextField1.setText(seats);
+        seat29.setEnabled(false);  
+        seat -=1;
+        }// TODO add your handling code here:
+    }//GEN-LAST:event_seat29ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        String[] seatsArray = seats.split(" ");
+        System.out.println("output string: " + Arrays.toString(seatsArray));
+        
+        seatValue= jTextField1.getText();
+        System.out.println(seatValue);
+        dispose();
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+     String getSeat(){
+    
+        // System.out.println(seatValue);
+        //return seatValue;
+    
+         System.out.println(this.seatValue);
+        return seatValue;
+        
+    
+    }
+    
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+dispose();        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void ClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearActionPerformed
+        // TODO add your handling code here:
+        seat = 1;
+        seats = " ";
+        jTextField1.setText(seats);
+        seat1.setEnabled(true);
+        seat1.setSelected(false);
+        seat2.setEnabled(true);
+        seat2.setSelected(false);
+        seat3.setEnabled(true);
+        seat3.setSelected(false);
+        seat4.setSelected(false);
+        seat4.setEnabled(true);
+        seat5.setSelected(false);
+        seat5.setEnabled(true);
+        seat6.setSelected(false);
+        seat6.setEnabled(true);
+        seat7.setSelected(false);
+        seat7.setEnabled(true);
+        seat8.setSelected(false);
+        seat8.setEnabled(true);
+        seat9.setSelected(false);
+        seat9.setEnabled(true);
+        seat10.setSelected(false);
+        seat10.setEnabled(true);
+        seat11.setSelected(false);
+        seat11.setEnabled(true);
+        seat12.setSelected(false);
+        seat12.setEnabled(true);
+        seat13.setSelected(false);
+        seat13.setEnabled(true);
+        seat14.setSelected(false);
+        seat14.setEnabled(true);
+        seat15.setSelected(false);
+        seat15.setEnabled(true);
+        
+        seat16.setSelected(false);
+        seat16.setEnabled(true);
+        seat17.setSelected(false);
+        seat17.setEnabled(true);
+        seat18.setSelected(false);
+        seat18.setEnabled(true);
+        seat19.setSelected(false);
+        seat19.setEnabled(true);
+        seat20.setSelected(false);
+        seat20.setEnabled(true);
+        seat21.setSelected(false);
+        seat21.setEnabled(true);
+        seat22.setSelected(false);
+        seat22.setEnabled(true);
+        seat23.setSelected(false);
+        seat23.setEnabled(true);
+        seat24.setSelected(false);
+        seat24.setEnabled(true);
+        seat25.setSelected(false);
+        seat25.setEnabled(true);
+        seat26.setSelected(false);
+        seat26.setEnabled(true);
+        seat27.setSelected(false);
+        seat27.setEnabled(true);
+        seat28.setSelected(false);
+        seat28.setEnabled(true);
+        seat29.setSelected(false);
+        seat29.setEnabled(true);
+        seat30.setSelected(false);
+        seat30.setEnabled(true);
+        
+        
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_ClearActionPerformed
+
+   
     /**
      * @param args the command line arguments
      */
@@ -413,14 +1039,14 @@ public class AddSeat extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Clear;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JCheckBox seat1;
     private javax.swing.JCheckBox seat10;
     private javax.swing.JCheckBox seat11;
